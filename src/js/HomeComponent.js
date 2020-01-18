@@ -1,7 +1,7 @@
 import React from 'react';
-import { fetchCurrencies } from './api/config'
 import Currencies from './Currencies';
 import Favourite from './Favourite';
+import { connect } from 'react-redux';
 class HomeComponent extends React.Component {
     constructor() {
         super();
@@ -9,27 +9,23 @@ class HomeComponent extends React.Component {
             rates: []
         }
     }
-    componentDidMount() {
-        fetchCurrencies.then(({ data }) => {
-            this.setState({
-                rates: data[0].rates.map((item) => {
-                    return { ...item, favourite: false }
-                })
-            })
-        });
-    }
     render() {
-        const currencies = this.state.rates;
-        const favouriteRates = currencies.filter((item) => { return item.favourite === true })
+        const currencies = this.props.rates;
+        const favouriteCurrencies = currencies.filter((item) => { return item.favourite === true })
         return (
             <section className="uk-container">
-                <h3>Favourite</h3>
-                <Favourite currencies={favouriteRates}></Favourite>
+                <h3>Favourites</h3>
+                <Favourite currencies={favouriteCurrencies}></Favourite>
                 <h3>NBP currencies</h3>
                 <Currencies currencies={currencies}></Currencies>
-
             </section>
         )
     }
 };
-export default HomeComponent;
+
+const mapStateToProps = (state) => {
+    return {
+        rates: state.rates
+    }
+}
+export default connect(mapStateToProps)(HomeComponent);

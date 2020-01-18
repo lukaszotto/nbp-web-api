@@ -9,7 +9,7 @@ class Favourite extends React.Component {
         const currencies = this.props.currencies;
         return (
             <>
-                <ul class="uk-list uk-list-striped">
+                <ul className="uk-list uk-list-striped">
                     {currencies.map((item) => {
                         return <CurrencyItem key={item.code} currency={item}></CurrencyItem>
                     })}

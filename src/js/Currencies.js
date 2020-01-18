@@ -17,9 +17,8 @@ class Currencies extends React.Component {
         const currencies = this.props.currencies;
         return (
             <>
-
                 <input onChange={this.updateFilter} id="filterBy" type="text" className="uk-input" />
-                <ul class="uk-list uk-list-striped">
+                <ul className="uk-list uk-list-striped">
                     {currencies.filter((item) => {
                         const searchIn = item.code.toLowerCase() + ' ' + item.currency.toLowerCase();
                         return searchIn.includes(this.state.filterBy.toLowerCase())
