@@ -1,6 +1,6 @@
 
 import React from 'react';
-import CurrencyItem from './CurrencyItem';
+import CurrencyListItem from './CurrencyItem';
 class Currencies extends React.Component {
     constructor(props) {
         super(props);
@@ -17,13 +17,17 @@ class Currencies extends React.Component {
         const currencies = this.props.currencies;
         return (
             <>
-                <input onChange={this.updateFilter}></input>
-                {currencies.filter((item) => {
-                    const searchIn = item.code.toLowerCase() + ' ' + item.currency.toLowerCase();
-                    return searchIn.includes(this.state.filterBy.toLowerCase())
-                }).map((item) => {
-                    return <CurrencyItem key={item.code} currency={item}></CurrencyItem>
-                })}
+
+                <input onChange={this.updateFilter} id="filterBy" type="text" className="uk-input" />
+                <ul class="uk-list uk-list-striped">
+                    {currencies.filter((item) => {
+                        const searchIn = item.code.toLowerCase() + ' ' + item.currency.toLowerCase();
+                        return searchIn.includes(this.state.filterBy.toLowerCase())
+                    }).map((item) => {
+                        return <CurrencyListItem key={item.code} currency={item}></CurrencyListItem>
+                    })}
+                </ul>
+
             </>
         )
     }
