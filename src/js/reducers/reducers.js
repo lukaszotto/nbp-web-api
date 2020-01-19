@@ -1,5 +1,7 @@
+import { TOGGLE_FAVOURITE, GET_RATES } from '../constants';
+
 export default function (state = {}, action) {
-    if (action.type === 'TOGGLE_FAVOURITE') {
+    if (action.type === TOGGLE_FAVOURITE) {
         return state.map((item) => {
             if (item.code === action.payload.code) {
                 return { ...item, favourite: !item.favourite }
@@ -8,7 +10,7 @@ export default function (state = {}, action) {
             }
         });
     }
-    if (action.type === 'GET_RATES') {
+    if (action.type === GET_RATES) {
         return action.payload;
     }
     return state;

@@ -1,0 +1,3 @@
+export const TOGGLE_FAVOURITE = 'TOGGLE_FAVOURITE';
+
+export const GET_RATES = 'GET_RATES';

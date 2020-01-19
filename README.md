@@ -5,3 +5,7 @@
 *npm install*
 
 *npm run start*
+
+## test with
+
+*npm run test*
