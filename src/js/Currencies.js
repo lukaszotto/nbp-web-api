@@ -17,16 +17,15 @@ class Currencies extends React.Component {
         const currencies = this.props.currencies;
         return (
             <>
-                <input onChange={this.updateFilter} id="filterBy" type="text" className="uk-input" />
+                <input placeholder="filter by" onChange={this.updateFilter} type="text" className="uk-input" />
                 <ul className="uk-list uk-list-striped">
                     {currencies.filter((item) => {
                         const searchIn = item.code.toLowerCase() + ' ' + item.currency.toLowerCase();
                         return searchIn.includes(this.state.filterBy.toLowerCase())
                     }).map((item) => {
-                        return <CurrencyListItem key={item.code} currency={item}></CurrencyListItem>
+                        return <CurrencyListItem customStyle="aside" key={item.code} currency={item}></CurrencyListItem>
                     })}
                 </ul>
-
             </>
         )
     }

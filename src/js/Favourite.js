@@ -15,7 +15,6 @@ class Favourite extends React.Component {
                     })}
                 </ul>
             </>
-
         )
     }
 }

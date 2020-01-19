@@ -2,6 +2,8 @@ import React from 'react';
 import Currencies from './Currencies';
 import Favourite from './Favourite';
 import { connect } from 'react-redux';
+import { Sidebar, Container } from './styles/styles'
+
 class HomeComponent extends React.Component {
     constructor() {
         super();
@@ -13,12 +15,16 @@ class HomeComponent extends React.Component {
         const currencies = this.props.rates;
         const favouriteCurrencies = currencies.filter((item) => { return item.favourite === true })
         return (
-            <section className="uk-container">
-                <h3>Favourites</h3>
-                <Favourite currencies={favouriteCurrencies}></Favourite>
-                <h3>NBP currencies</h3>
-                <Currencies currencies={currencies}></Currencies>
-            </section>
+            <>
+                <Container>
+                    <h3>Favourites</h3>
+                    <Favourite currencies={favouriteCurrencies}></Favourite>
+                </Container>
+                <Sidebar>
+                    <h3>NBP currencies</h3>
+                    <Currencies currencies={currencies}></Currencies>
+                </Sidebar>
+            </>
         )
     }
 };
