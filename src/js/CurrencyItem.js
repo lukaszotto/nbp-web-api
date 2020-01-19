@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { toggleFavourite } from './actions/actions';
 import Icons from 'uikit/dist/js/uikit-icons';
 import { CurrencyItemWrap } from './styles/styles'
+
 class CurrencyListItem extends React.Component {
     constructor(props) {
         super(props);

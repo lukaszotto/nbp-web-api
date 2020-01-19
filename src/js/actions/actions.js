@@ -1,11 +1,17 @@
 import { fetchExchangerates } from '../api/config'
-import { TOGGLE_FAVOURITE, GET_RATES } from '../constants';
+import { TOGGLE_FAVOURITE, GET_RATES, CLEAR_ALL_FAVOURITES } from '../constants';
 export const toggleFavourite = (code) => {
     return {
         type: TOGGLE_FAVOURITE,
         payload: {
             code: code
         }
+    }
+}
+
+export const clearAllFavourites = () => {
+    return {
+        type: CLEAR_ALL_FAVOURITES
     }
 }
 

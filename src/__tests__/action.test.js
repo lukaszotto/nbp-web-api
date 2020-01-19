@@ -1,7 +1,7 @@
 import * as constants from '../js/constants';
 
 
-import { toggleFavourite } from '../js/actions/actions'
+import { toggleFavourite, clearAllFavourites } from '../js/actions/actions'
 
 
 
@@ -19,4 +19,11 @@ describe('Currency action', () => {
             expect(action.payload.code).toBe(code);
         });
     });
+
+    describe('clearAllFavourites', () => {
+        it('should return CLEAR_ALL_FAVOURITES as the item type', () => {
+            const action = clearAllFavourites();
+            expect(action.type).toBe(constants.CLEAR_ALL_FAVOURITES);
+        });
+    })
 })
